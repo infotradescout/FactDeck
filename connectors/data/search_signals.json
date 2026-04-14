@@ -1,0 +1,15 @@
+{
+  "Mobile Coffee Cart": {
+    "behavioral_delta": 2,
+    "note": "Connector search trend: weekday coffee and event vendor intent rising."
+  },
+  "Neighborhood Smoothie Kiosk": {
+    "behavioral_delta": -1,
+    "note": "Connector search trend: interest stable but plateaued quarter-over-quarter."
+  },
+  "Home Cleaning Subscription Service": {
+    "behavioral_delta": 3,
+    "note": "Connector search trend: local demand for recurring cleaning plans improving."
+  }
+}
+

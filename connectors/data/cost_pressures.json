@@ -1,0 +1,15 @@
+{
+  "Plano, TX": {
+    "constraint_delta": -1,
+    "note": "Connector cost model: permit and storage costs slightly above baseline."
+  },
+  "Arlington, TX": {
+    "constraint_delta": -3,
+    "note": "Connector cost model: rent and ingredient pressures constrain margins."
+  },
+  "Frisco, TX": {
+    "constraint_delta": -1,
+    "note": "Connector cost model: labor availability offsets insurance pressure."
+  }
+}
+

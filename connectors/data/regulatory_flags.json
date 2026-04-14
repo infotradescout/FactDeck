@@ -1,0 +1,15 @@
+{
+  "Plano, TX": {
+    "risk_delta": 2,
+    "note": "Connector regulatory check: event permit timing risk remains."
+  },
+  "Arlington, TX": {
+    "risk_delta": 1,
+    "note": "Connector regulatory check: standard compliance overhead."
+  },
+  "Frisco, TX": {
+    "risk_delta": 1,
+    "note": "Connector regulatory check: insurance documentation cycle risk."
+  }
+}
+

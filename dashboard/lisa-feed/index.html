@@ -85,14 +85,14 @@
     <section class="panel">
       <h1>/lisa-feed</h1>
       <div class="sub">FactDeck knowledge translation layer for LISA.</div>
-      <div class="sub">Generated: 2026-04-14T22:55:20.541110+00:00 | Publish status: draft</div>
+      <div class="sub">Generated: 2026-04-14T23:08:53.116324+00:00 | Publish status: draft</div>
     </section>
 
     <section class="panel">
       <h2>Section A - LISA-ready fact signals</h2>
       <div class="cards">
-        <article class="card"><div class="sub">new facts</div><div class="metric">0</div></article>
-        <article class="card"><div class="sub">changed facts</div><div class="metric">0</div></article>
+        <article class="card"><div class="sub">new facts</div><div class="metric">3</div></article>
+        <article class="card"><div class="sub">changed facts</div><div class="metric">3</div></article>
         <article class="card"><div class="sub">disputed facts</div><div class="metric">0</div></article>
         <article class="card"><div class="sub">high-confidence topic updates</div><div class="metric">0</div></article>
       </div>
@@ -104,26 +104,370 @@
       <pre>{
   &quot;source_system&quot;: &quot;factdeck&quot;,
   &quot;packet_type&quot;: &quot;factdeck_lisa_feed&quot;,
-  &quot;generated_at&quot;: &quot;2026-04-14T22:55:20.541110+00:00&quot;,
+  &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
   &quot;lane&quot;: &quot;fact_intelligence&quot;,
   &quot;priority&quot;: &quot;low&quot;,
-  &quot;summary&quot;: &quot;FactDeck knowledge translation for case case-2026-04-14-001; 0 LISA-ready knowledge objects.&quot;,
-  &quot;items&quot;: [],
-  &quot;evidence_refs&quot;: [
-    &quot;local_demographics_2025&quot;,
-    &quot;search_trends_last_24_months&quot;,
-    &quot;peer_business_public_data&quot;,
-    &quot;internal_cost_estimates_v3&quot;
+  &quot;summary&quot;: &quot;FactDeck knowledge translation for case case-2026-04-14-001; 12 LISA-ready knowledge objects.&quot;,
+  &quot;items&quot;: [
+    {
+      &quot;item_id&quot;: &quot;factsignal:case-2026-04-14-001:A&quot;,
+      &quot;object_type&quot;: &quot;FactSignal&quot;,
+      &quot;source_system&quot;: &quot;factdeck&quot;,
+      &quot;source_type&quot;: &quot;fact&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;lane&quot;: &quot;fact_intelligence&quot;,
+      &quot;entity&quot;: &quot;Mobile Coffee Cart&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;claim&quot;: &quot;Mobile Coffee Cart in Plano, TX is &#x27;deprioritize&#x27; for monthly_profit_positive_by_month_6.&quot;,
+      &quot;normalized_fact&quot;: {
+        &quot;option_id&quot;: &quot;A&quot;,
+        &quot;final_score&quot;: 59.77,
+        &quot;risk_score&quot;: 45.0,
+        &quot;confidence&quot;: 0.682,
+        &quot;decision_label&quot;: &quot;deprioritize&quot;
+      },
+      &quot;fact_type&quot;: &quot;evidence_backed_assertion&quot;,
+      &quot;confidence&quot;: 0.682,
+      &quot;freshness&quot;: &quot;fresh&quot;,
+      &quot;source_count&quot;: 8,
+      &quot;evidence_refs&quot;: [
+        &quot;connectors/data/cost_pressures.json&quot;,
+        &quot;connectors/data/demographics.json&quot;,
+        &quot;connectors/data/regulatory_flags.json&quot;,
+        &quot;connectors/data/search_signals.json&quot;,
+        &quot;internal_cost_estimates_v3&quot;,
+        &quot;local_demographics_2025&quot;,
+        &quot;peer_business_public_data&quot;,
+        &quot;search_trends_last_24_months&quot;
+      ],
+      &quot;contradiction_risk&quot;: 0.46,
+      &quot;status&quot;: &quot;provisional&quot;,
+      &quot;tags&quot;: [
+        &quot;business_viability&quot;,
+        &quot;viability&quot;,
+        &quot;Plano, TX&quot;
+      ],
+      &quot;item_fingerprint&quot;: &quot;6094b66e149f716b74d990ab05a10e5f5e1d8b3f&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;evidence:case-2026-04-14-001:A&quot;,
+      &quot;object_type&quot;: &quot;EvidencePacket&quot;,
+      &quot;packet_id&quot;: &quot;packet:case-2026-04-14-001:A&quot;,
+      &quot;entity&quot;: &quot;Mobile Coffee Cart&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;supporting_claims&quot;: [
+        &quot;demand signals&quot;,
+        &quot;feasibility constraints&quot;,
+        &quot;structural evidence&quot;
+      ],
+      &quot;sources&quot;: [
+        &quot;connectors/data/cost_pressures.json&quot;,
+        &quot;connectors/data/demographics.json&quot;,
+        &quot;connectors/data/regulatory_flags.json&quot;,
+        &quot;connectors/data/search_signals.json&quot;,
+        &quot;internal_cost_estimates_v3&quot;,
+        &quot;local_demographics_2025&quot;,
+        &quot;peer_business_public_data&quot;,
+        &quot;search_trends_last_24_months&quot;
+      ],
+      &quot;source_quality_summary&quot;: &quot;moderate&quot;,
+      &quot;time_range&quot;: &quot;last_12_months_to_present&quot;,
+      &quot;confidence&quot;: 0.682,
+      &quot;gaps&quot;: [
+        &quot;updated zoning detail by district&quot;,
+        &quot;direct willingness-to-pay survey&quot;
+      ],
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;f83a36b32cb9c4bee7959d17f19b1830997b45f8&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;topic:case-2026-04-14-001:A&quot;,
+      &quot;object_type&quot;: &quot;TopicIntelPacket&quot;,
+      &quot;topic&quot;: &quot;Mobile Coffee Cart&quot;,
+      &quot;lane&quot;: &quot;fact_intelligence&quot;,
+      &quot;summary&quot;: &quot;Mobile Coffee Cart scored 59.77 (deprioritize) with confidence 0.682.&quot;,
+      &quot;key_facts&quot;: [
+        &quot;score=59.77&quot;,
+        &quot;risk=45.0&quot;,
+        &quot;uncertainty=37.8&quot;
+      ],
+      &quot;new_facts&quot;: [
+        &quot;demand signals&quot;,
+        &quot;feasibility constraints&quot;,
+        &quot;structural evidence&quot;
+      ],
+      &quot;disputed_facts&quot;: [
+        &quot;updated zoning detail by district&quot;,
+        &quot;direct willingness-to-pay survey&quot;
+      ],
+      &quot;confidence&quot;: 0.682,
+      &quot;recommended_attention_level&quot;: &quot;high&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;d8fa748bd0f6fc3eb2afe25a85644027159f3415&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;contradiction:case-2026-04-14-001:A&quot;,
+      &quot;object_type&quot;: &quot;ContradictionSignal&quot;,
+      &quot;entity&quot;: &quot;Mobile Coffee Cart&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;claim_a&quot;: &quot;Base case supports Mobile Coffee Cart with score 59.77.&quot;,
+      &quot;claim_b&quot;: &quot;Downside case weakens to score 44.61.&quot;,
+      &quot;source_a&quot;: &quot;scenario_base&quot;,
+      &quot;source_b&quot;: &quot;scenario_downside&quot;,
+      &quot;relative_strength&quot;: 0.152,
+      &quot;resolution_status&quot;: &quot;resolved&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;36b8414b66a3e477cb179026c7c33a030879a682&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;factsignal:case-2026-04-14-001:C&quot;,
+      &quot;object_type&quot;: &quot;FactSignal&quot;,
+      &quot;source_system&quot;: &quot;factdeck&quot;,
+      &quot;source_type&quot;: &quot;fact&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;lane&quot;: &quot;fact_intelligence&quot;,
+      &quot;entity&quot;: &quot;Home Cleaning Subscription Service&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;claim&quot;: &quot;Home Cleaning Subscription Service in Frisco, TX is &#x27;deprioritize&#x27; for monthly_profit_positive_by_month_6.&quot;,
+      &quot;normalized_fact&quot;: {
+        &quot;option_id&quot;: &quot;C&quot;,
+        &quot;final_score&quot;: 53.14,
+        &quot;risk_score&quot;: 47.0,
+        &quot;confidence&quot;: 0.702,
+        &quot;decision_label&quot;: &quot;deprioritize&quot;
+      },
+      &quot;fact_type&quot;: &quot;evidence_backed_assertion&quot;,
+      &quot;confidence&quot;: 0.702,
+      &quot;freshness&quot;: &quot;fresh&quot;,
+      &quot;source_count&quot;: 8,
+      &quot;evidence_refs&quot;: [
+        &quot;connectors/data/cost_pressures.json&quot;,
+        &quot;connectors/data/demographics.json&quot;,
+        &quot;connectors/data/regulatory_flags.json&quot;,
+        &quot;connectors/data/search_signals.json&quot;,
+        &quot;internal_cost_estimates_v3&quot;,
+        &quot;local_demographics_2025&quot;,
+        &quot;peer_business_public_data&quot;,
+        &quot;search_trends_last_24_months&quot;
+      ],
+      &quot;contradiction_risk&quot;: 0.443,
+      &quot;status&quot;: &quot;provisional&quot;,
+      &quot;tags&quot;: [
+        &quot;business_viability&quot;,
+        &quot;viability&quot;,
+        &quot;Frisco, TX&quot;
+      ],
+      &quot;item_fingerprint&quot;: &quot;4340b8bbaae54f03276ca8faad4e8634c19c2686&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;evidence:case-2026-04-14-001:C&quot;,
+      &quot;object_type&quot;: &quot;EvidencePacket&quot;,
+      &quot;packet_id&quot;: &quot;packet:case-2026-04-14-001:C&quot;,
+      &quot;entity&quot;: &quot;Home Cleaning Subscription Service&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;supporting_claims&quot;: [
+        &quot;demand signals&quot;,
+        &quot;feasibility constraints&quot;,
+        &quot;structural evidence&quot;
+      ],
+      &quot;sources&quot;: [
+        &quot;connectors/data/cost_pressures.json&quot;,
+        &quot;connectors/data/demographics.json&quot;,
+        &quot;connectors/data/regulatory_flags.json&quot;,
+        &quot;connectors/data/search_signals.json&quot;,
+        &quot;internal_cost_estimates_v3&quot;,
+        &quot;local_demographics_2025&quot;,
+        &quot;peer_business_public_data&quot;,
+        &quot;search_trends_last_24_months&quot;
+      ],
+      &quot;source_quality_summary&quot;: &quot;moderate&quot;,
+      &quot;time_range&quot;: &quot;last_12_months_to_present&quot;,
+      &quot;confidence&quot;: 0.702,
+      &quot;gaps&quot;: [
+        &quot;insurance quote variance by provider&quot;
+      ],
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;a7a6bff5748fd2cb2e88d51251ed92d8683ff8bf&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;topic:case-2026-04-14-001:C&quot;,
+      &quot;object_type&quot;: &quot;TopicIntelPacket&quot;,
+      &quot;topic&quot;: &quot;Home Cleaning Subscription Service&quot;,
+      &quot;lane&quot;: &quot;fact_intelligence&quot;,
+      &quot;summary&quot;: &quot;Home Cleaning Subscription Service scored 53.14 (deprioritize) with confidence 0.702.&quot;,
+      &quot;key_facts&quot;: [
+        &quot;score=53.14&quot;,
+        &quot;risk=47.0&quot;,
+        &quot;uncertainty=32.8&quot;
+      ],
+      &quot;new_facts&quot;: [
+        &quot;demand signals&quot;,
+        &quot;feasibility constraints&quot;,
+        &quot;structural evidence&quot;
+      ],
+      &quot;disputed_facts&quot;: [
+        &quot;insurance quote variance by provider&quot;
+      ],
+      &quot;confidence&quot;: 0.702,
+      &quot;recommended_attention_level&quot;: &quot;high&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;bae5929d2a4c47e250e679118e34a2dbde565742&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;contradiction:case-2026-04-14-001:C&quot;,
+      &quot;object_type&quot;: &quot;ContradictionSignal&quot;,
+      &quot;entity&quot;: &quot;Home Cleaning Subscription Service&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;claim_a&quot;: &quot;Base case supports Home Cleaning Subscription Service with score 53.14.&quot;,
+      &quot;claim_b&quot;: &quot;Downside case weakens to score 43.99.&quot;,
+      &quot;source_a&quot;: &quot;scenario_base&quot;,
+      &quot;source_b&quot;: &quot;scenario_downside&quot;,
+      &quot;relative_strength&quot;: 0.091,
+      &quot;resolution_status&quot;: &quot;unresolved&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;9cdcb8e391b2ab3fd4bfa5d8ac4fc988568eb1e7&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;factsignal:case-2026-04-14-001:B&quot;,
+      &quot;object_type&quot;: &quot;FactSignal&quot;,
+      &quot;source_system&quot;: &quot;factdeck&quot;,
+      &quot;source_type&quot;: &quot;fact&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;lane&quot;: &quot;fact_intelligence&quot;,
+      &quot;entity&quot;: &quot;Neighborhood Smoothie Kiosk&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;claim&quot;: &quot;Neighborhood Smoothie Kiosk in Arlington, TX is &#x27;reject&#x27; for monthly_profit_positive_by_month_6.&quot;,
+      &quot;normalized_fact&quot;: {
+        &quot;option_id&quot;: &quot;B&quot;,
+        &quot;final_score&quot;: 40.99,
+        &quot;risk_score&quot;: 53.0,
+        &quot;confidence&quot;: 0.642,
+        &quot;decision_label&quot;: &quot;reject&quot;
+      },
+      &quot;fact_type&quot;: &quot;evidence_backed_assertion&quot;,
+      &quot;confidence&quot;: 0.642,
+      &quot;freshness&quot;: &quot;fresh&quot;,
+      &quot;source_count&quot;: 8,
+      &quot;evidence_refs&quot;: [
+        &quot;connectors/data/cost_pressures.json&quot;,
+        &quot;connectors/data/demographics.json&quot;,
+        &quot;connectors/data/regulatory_flags.json&quot;,
+        &quot;connectors/data/search_signals.json&quot;,
+        &quot;internal_cost_estimates_v3&quot;,
+        &quot;local_demographics_2025&quot;,
+        &quot;peer_business_public_data&quot;,
+        &quot;search_trends_last_24_months&quot;
+      ],
+      &quot;contradiction_risk&quot;: 0.527,
+      &quot;status&quot;: &quot;provisional&quot;,
+      &quot;tags&quot;: [
+        &quot;business_viability&quot;,
+        &quot;viability&quot;,
+        &quot;Arlington, TX&quot;
+      ],
+      &quot;item_fingerprint&quot;: &quot;31924864ae130842a490e401c9bd14f25dd23389&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;evidence:case-2026-04-14-001:B&quot;,
+      &quot;object_type&quot;: &quot;EvidencePacket&quot;,
+      &quot;packet_id&quot;: &quot;packet:case-2026-04-14-001:B&quot;,
+      &quot;entity&quot;: &quot;Neighborhood Smoothie Kiosk&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;supporting_claims&quot;: [
+        &quot;demand signals&quot;,
+        &quot;feasibility constraints&quot;,
+        &quot;structural evidence&quot;
+      ],
+      &quot;sources&quot;: [
+        &quot;connectors/data/cost_pressures.json&quot;,
+        &quot;connectors/data/demographics.json&quot;,
+        &quot;connectors/data/regulatory_flags.json&quot;,
+        &quot;connectors/data/search_signals.json&quot;,
+        &quot;internal_cost_estimates_v3&quot;,
+        &quot;local_demographics_2025&quot;,
+        &quot;peer_business_public_data&quot;,
+        &quot;search_trends_last_24_months&quot;
+      ],
+      &quot;source_quality_summary&quot;: &quot;moderate&quot;,
+      &quot;time_range&quot;: &quot;last_12_months_to_present&quot;,
+      &quot;confidence&quot;: 0.642,
+      &quot;gaps&quot;: [
+        &quot;peer margin data in same rent tier&quot;,
+        &quot;pre-launch preorder signal&quot;
+      ],
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;2c0198584a95aad1d21e6b9f202ed52628abe8ce&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;topic:case-2026-04-14-001:B&quot;,
+      &quot;object_type&quot;: &quot;TopicIntelPacket&quot;,
+      &quot;topic&quot;: &quot;Neighborhood Smoothie Kiosk&quot;,
+      &quot;lane&quot;: &quot;fact_intelligence&quot;,
+      &quot;summary&quot;: &quot;Neighborhood Smoothie Kiosk scored 40.99 (reject) with confidence 0.642.&quot;,
+      &quot;key_facts&quot;: [
+        &quot;score=40.99&quot;,
+        &quot;risk=53.0&quot;,
+        &quot;uncertainty=41.8&quot;
+      ],
+      &quot;new_facts&quot;: [
+        &quot;demand signals&quot;,
+        &quot;feasibility constraints&quot;,
+        &quot;structural evidence&quot;
+      ],
+      &quot;disputed_facts&quot;: [
+        &quot;peer margin data in same rent tier&quot;,
+        &quot;pre-launch preorder signal&quot;
+      ],
+      &quot;confidence&quot;: 0.642,
+      &quot;recommended_attention_level&quot;: &quot;high&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;1b0bd02b6e37dc1136209983e5cc2578bd56dcb9&quot;
+    },
+    {
+      &quot;item_id&quot;: &quot;contradiction:case-2026-04-14-001:B&quot;,
+      &quot;object_type&quot;: &quot;ContradictionSignal&quot;,
+      &quot;entity&quot;: &quot;Neighborhood Smoothie Kiosk&quot;,
+      &quot;topic&quot;: &quot;business_viability&quot;,
+      &quot;claim_a&quot;: &quot;Base case supports Neighborhood Smoothie Kiosk with score 40.99.&quot;,
+      &quot;claim_b&quot;: &quot;Downside case weakens to score 31.84.&quot;,
+      &quot;source_a&quot;: &quot;scenario_base&quot;,
+      &quot;source_b&quot;: &quot;scenario_downside&quot;,
+      &quot;relative_strength&quot;: 0.091,
+      &quot;resolution_status&quot;: &quot;unresolved&quot;,
+      &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;,
+      &quot;item_fingerprint&quot;: &quot;c90e1817c61c021ccc37fc143306112adc205bb8&quot;
+    }
   ],
-  &quot;fresh_until&quot;: &quot;2026-04-28T22:55:20.556110+00:00&quot;,
+  &quot;evidence_refs&quot;: [
+    &quot;connectors/data/cost_pressures.json&quot;,
+    &quot;connectors/data/demographics.json&quot;,
+    &quot;connectors/data/regulatory_flags.json&quot;,
+    &quot;connectors/data/search_signals.json&quot;,
+    &quot;internal_cost_estimates_v3&quot;,
+    &quot;local_demographics_2025&quot;,
+    &quot;peer_business_public_data&quot;,
+    &quot;search_trends_last_24_months&quot;
+  ],
+  &quot;fresh_until&quot;: &quot;2026-04-28T23:08:53.116824+00:00&quot;,
   &quot;publish_status&quot;: &quot;draft&quot;,
   &quot;delta_mode&quot;: {
     &quot;since&quot;: null,
-    &quot;delta_from_path&quot;: &quot;factdeck_lisa_feed.json&quot;
+    &quot;delta_from_path&quot;: null
   }
 }</pre>
       <div class="sub">NDJSON (copy/export)</div>
-      <pre></pre>
+      <pre>{&quot;item_id&quot;: &quot;factsignal:case-2026-04-14-001:A&quot;, &quot;object_type&quot;: &quot;FactSignal&quot;, &quot;source_system&quot;: &quot;factdeck&quot;, &quot;source_type&quot;: &quot;fact&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;lane&quot;: &quot;fact_intelligence&quot;, &quot;entity&quot;: &quot;Mobile Coffee Cart&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;claim&quot;: &quot;Mobile Coffee Cart in Plano, TX is &#x27;deprioritize&#x27; for monthly_profit_positive_by_month_6.&quot;, &quot;normalized_fact&quot;: {&quot;option_id&quot;: &quot;A&quot;, &quot;final_score&quot;: 59.77, &quot;risk_score&quot;: 45.0, &quot;confidence&quot;: 0.682, &quot;decision_label&quot;: &quot;deprioritize&quot;}, &quot;fact_type&quot;: &quot;evidence_backed_assertion&quot;, &quot;confidence&quot;: 0.682, &quot;freshness&quot;: &quot;fresh&quot;, &quot;source_count&quot;: 8, &quot;evidence_refs&quot;: [&quot;connectors/data/cost_pressures.json&quot;, &quot;connectors/data/demographics.json&quot;, &quot;connectors/data/regulatory_flags.json&quot;, &quot;connectors/data/search_signals.json&quot;, &quot;internal_cost_estimates_v3&quot;, &quot;local_demographics_2025&quot;, &quot;peer_business_public_data&quot;, &quot;search_trends_last_24_months&quot;], &quot;contradiction_risk&quot;: 0.46, &quot;status&quot;: &quot;provisional&quot;, &quot;tags&quot;: [&quot;business_viability&quot;, &quot;viability&quot;, &quot;Plano, TX&quot;], &quot;item_fingerprint&quot;: &quot;6094b66e149f716b74d990ab05a10e5f5e1d8b3f&quot;}
+{&quot;item_id&quot;: &quot;evidence:case-2026-04-14-001:A&quot;, &quot;object_type&quot;: &quot;EvidencePacket&quot;, &quot;packet_id&quot;: &quot;packet:case-2026-04-14-001:A&quot;, &quot;entity&quot;: &quot;Mobile Coffee Cart&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;supporting_claims&quot;: [&quot;demand signals&quot;, &quot;feasibility constraints&quot;, &quot;structural evidence&quot;], &quot;sources&quot;: [&quot;connectors/data/cost_pressures.json&quot;, &quot;connectors/data/demographics.json&quot;, &quot;connectors/data/regulatory_flags.json&quot;, &quot;connectors/data/search_signals.json&quot;, &quot;internal_cost_estimates_v3&quot;, &quot;local_demographics_2025&quot;, &quot;peer_business_public_data&quot;, &quot;search_trends_last_24_months&quot;], &quot;source_quality_summary&quot;: &quot;moderate&quot;, &quot;time_range&quot;: &quot;last_12_months_to_present&quot;, &quot;confidence&quot;: 0.682, &quot;gaps&quot;: [&quot;updated zoning detail by district&quot;, &quot;direct willingness-to-pay survey&quot;], &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;f83a36b32cb9c4bee7959d17f19b1830997b45f8&quot;}
+{&quot;item_id&quot;: &quot;topic:case-2026-04-14-001:A&quot;, &quot;object_type&quot;: &quot;TopicIntelPacket&quot;, &quot;topic&quot;: &quot;Mobile Coffee Cart&quot;, &quot;lane&quot;: &quot;fact_intelligence&quot;, &quot;summary&quot;: &quot;Mobile Coffee Cart scored 59.77 (deprioritize) with confidence 0.682.&quot;, &quot;key_facts&quot;: [&quot;score=59.77&quot;, &quot;risk=45.0&quot;, &quot;uncertainty=37.8&quot;], &quot;new_facts&quot;: [&quot;demand signals&quot;, &quot;feasibility constraints&quot;, &quot;structural evidence&quot;], &quot;disputed_facts&quot;: [&quot;updated zoning detail by district&quot;, &quot;direct willingness-to-pay survey&quot;], &quot;confidence&quot;: 0.682, &quot;recommended_attention_level&quot;: &quot;high&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;d8fa748bd0f6fc3eb2afe25a85644027159f3415&quot;}
+{&quot;item_id&quot;: &quot;contradiction:case-2026-04-14-001:A&quot;, &quot;object_type&quot;: &quot;ContradictionSignal&quot;, &quot;entity&quot;: &quot;Mobile Coffee Cart&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;claim_a&quot;: &quot;Base case supports Mobile Coffee Cart with score 59.77.&quot;, &quot;claim_b&quot;: &quot;Downside case weakens to score 44.61.&quot;, &quot;source_a&quot;: &quot;scenario_base&quot;, &quot;source_b&quot;: &quot;scenario_downside&quot;, &quot;relative_strength&quot;: 0.152, &quot;resolution_status&quot;: &quot;resolved&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;36b8414b66a3e477cb179026c7c33a030879a682&quot;}
+{&quot;item_id&quot;: &quot;factsignal:case-2026-04-14-001:C&quot;, &quot;object_type&quot;: &quot;FactSignal&quot;, &quot;source_system&quot;: &quot;factdeck&quot;, &quot;source_type&quot;: &quot;fact&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;lane&quot;: &quot;fact_intelligence&quot;, &quot;entity&quot;: &quot;Home Cleaning Subscription Service&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;claim&quot;: &quot;Home Cleaning Subscription Service in Frisco, TX is &#x27;deprioritize&#x27; for monthly_profit_positive_by_month_6.&quot;, &quot;normalized_fact&quot;: {&quot;option_id&quot;: &quot;C&quot;, &quot;final_score&quot;: 53.14, &quot;risk_score&quot;: 47.0, &quot;confidence&quot;: 0.702, &quot;decision_label&quot;: &quot;deprioritize&quot;}, &quot;fact_type&quot;: &quot;evidence_backed_assertion&quot;, &quot;confidence&quot;: 0.702, &quot;freshness&quot;: &quot;fresh&quot;, &quot;source_count&quot;: 8, &quot;evidence_refs&quot;: [&quot;connectors/data/cost_pressures.json&quot;, &quot;connectors/data/demographics.json&quot;, &quot;connectors/data/regulatory_flags.json&quot;, &quot;connectors/data/search_signals.json&quot;, &quot;internal_cost_estimates_v3&quot;, &quot;local_demographics_2025&quot;, &quot;peer_business_public_data&quot;, &quot;search_trends_last_24_months&quot;], &quot;contradiction_risk&quot;: 0.443, &quot;status&quot;: &quot;provisional&quot;, &quot;tags&quot;: [&quot;business_viability&quot;, &quot;viability&quot;, &quot;Frisco, TX&quot;], &quot;item_fingerprint&quot;: &quot;4340b8bbaae54f03276ca8faad4e8634c19c2686&quot;}
+{&quot;item_id&quot;: &quot;evidence:case-2026-04-14-001:C&quot;, &quot;object_type&quot;: &quot;EvidencePacket&quot;, &quot;packet_id&quot;: &quot;packet:case-2026-04-14-001:C&quot;, &quot;entity&quot;: &quot;Home Cleaning Subscription Service&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;supporting_claims&quot;: [&quot;demand signals&quot;, &quot;feasibility constraints&quot;, &quot;structural evidence&quot;], &quot;sources&quot;: [&quot;connectors/data/cost_pressures.json&quot;, &quot;connectors/data/demographics.json&quot;, &quot;connectors/data/regulatory_flags.json&quot;, &quot;connectors/data/search_signals.json&quot;, &quot;internal_cost_estimates_v3&quot;, &quot;local_demographics_2025&quot;, &quot;peer_business_public_data&quot;, &quot;search_trends_last_24_months&quot;], &quot;source_quality_summary&quot;: &quot;moderate&quot;, &quot;time_range&quot;: &quot;last_12_months_to_present&quot;, &quot;confidence&quot;: 0.702, &quot;gaps&quot;: [&quot;insurance quote variance by provider&quot;], &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;a7a6bff5748fd2cb2e88d51251ed92d8683ff8bf&quot;}
+{&quot;item_id&quot;: &quot;topic:case-2026-04-14-001:C&quot;, &quot;object_type&quot;: &quot;TopicIntelPacket&quot;, &quot;topic&quot;: &quot;Home Cleaning Subscription Service&quot;, &quot;lane&quot;: &quot;fact_intelligence&quot;, &quot;summary&quot;: &quot;Home Cleaning Subscription Service scored 53.14 (deprioritize) with confidence 0.702.&quot;, &quot;key_facts&quot;: [&quot;score=53.14&quot;, &quot;risk=47.0&quot;, &quot;uncertainty=32.8&quot;], &quot;new_facts&quot;: [&quot;demand signals&quot;, &quot;feasibility constraints&quot;, &quot;structural evidence&quot;], &quot;disputed_facts&quot;: [&quot;insurance quote variance by provider&quot;], &quot;confidence&quot;: 0.702, &quot;recommended_attention_level&quot;: &quot;high&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;bae5929d2a4c47e250e679118e34a2dbde565742&quot;}
+{&quot;item_id&quot;: &quot;contradiction:case-2026-04-14-001:C&quot;, &quot;object_type&quot;: &quot;ContradictionSignal&quot;, &quot;entity&quot;: &quot;Home Cleaning Subscription Service&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;claim_a&quot;: &quot;Base case supports Home Cleaning Subscription Service with score 53.14.&quot;, &quot;claim_b&quot;: &quot;Downside case weakens to score 43.99.&quot;, &quot;source_a&quot;: &quot;scenario_base&quot;, &quot;source_b&quot;: &quot;scenario_downside&quot;, &quot;relative_strength&quot;: 0.091, &quot;resolution_status&quot;: &quot;unresolved&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;9cdcb8e391b2ab3fd4bfa5d8ac4fc988568eb1e7&quot;}
+{&quot;item_id&quot;: &quot;factsignal:case-2026-04-14-001:B&quot;, &quot;object_type&quot;: &quot;FactSignal&quot;, &quot;source_system&quot;: &quot;factdeck&quot;, &quot;source_type&quot;: &quot;fact&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;lane&quot;: &quot;fact_intelligence&quot;, &quot;entity&quot;: &quot;Neighborhood Smoothie Kiosk&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;claim&quot;: &quot;Neighborhood Smoothie Kiosk in Arlington, TX is &#x27;reject&#x27; for monthly_profit_positive_by_month_6.&quot;, &quot;normalized_fact&quot;: {&quot;option_id&quot;: &quot;B&quot;, &quot;final_score&quot;: 40.99, &quot;risk_score&quot;: 53.0, &quot;confidence&quot;: 0.642, &quot;decision_label&quot;: &quot;reject&quot;}, &quot;fact_type&quot;: &quot;evidence_backed_assertion&quot;, &quot;confidence&quot;: 0.642, &quot;freshness&quot;: &quot;fresh&quot;, &quot;source_count&quot;: 8, &quot;evidence_refs&quot;: [&quot;connectors/data/cost_pressures.json&quot;, &quot;connectors/data/demographics.json&quot;, &quot;connectors/data/regulatory_flags.json&quot;, &quot;connectors/data/search_signals.json&quot;, &quot;internal_cost_estimates_v3&quot;, &quot;local_demographics_2025&quot;, &quot;peer_business_public_data&quot;, &quot;search_trends_last_24_months&quot;], &quot;contradiction_risk&quot;: 0.527, &quot;status&quot;: &quot;provisional&quot;, &quot;tags&quot;: [&quot;business_viability&quot;, &quot;viability&quot;, &quot;Arlington, TX&quot;], &quot;item_fingerprint&quot;: &quot;31924864ae130842a490e401c9bd14f25dd23389&quot;}
+{&quot;item_id&quot;: &quot;evidence:case-2026-04-14-001:B&quot;, &quot;object_type&quot;: &quot;EvidencePacket&quot;, &quot;packet_id&quot;: &quot;packet:case-2026-04-14-001:B&quot;, &quot;entity&quot;: &quot;Neighborhood Smoothie Kiosk&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;supporting_claims&quot;: [&quot;demand signals&quot;, &quot;feasibility constraints&quot;, &quot;structural evidence&quot;], &quot;sources&quot;: [&quot;connectors/data/cost_pressures.json&quot;, &quot;connectors/data/demographics.json&quot;, &quot;connectors/data/regulatory_flags.json&quot;, &quot;connectors/data/search_signals.json&quot;, &quot;internal_cost_estimates_v3&quot;, &quot;local_demographics_2025&quot;, &quot;peer_business_public_data&quot;, &quot;search_trends_last_24_months&quot;], &quot;source_quality_summary&quot;: &quot;moderate&quot;, &quot;time_range&quot;: &quot;last_12_months_to_present&quot;, &quot;confidence&quot;: 0.642, &quot;gaps&quot;: [&quot;peer margin data in same rent tier&quot;, &quot;pre-launch preorder signal&quot;], &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;2c0198584a95aad1d21e6b9f202ed52628abe8ce&quot;}
+{&quot;item_id&quot;: &quot;topic:case-2026-04-14-001:B&quot;, &quot;object_type&quot;: &quot;TopicIntelPacket&quot;, &quot;topic&quot;: &quot;Neighborhood Smoothie Kiosk&quot;, &quot;lane&quot;: &quot;fact_intelligence&quot;, &quot;summary&quot;: &quot;Neighborhood Smoothie Kiosk scored 40.99 (reject) with confidence 0.642.&quot;, &quot;key_facts&quot;: [&quot;score=40.99&quot;, &quot;risk=53.0&quot;, &quot;uncertainty=41.8&quot;], &quot;new_facts&quot;: [&quot;demand signals&quot;, &quot;feasibility constraints&quot;, &quot;structural evidence&quot;], &quot;disputed_facts&quot;: [&quot;peer margin data in same rent tier&quot;, &quot;pre-launch preorder signal&quot;], &quot;confidence&quot;: 0.642, &quot;recommended_attention_level&quot;: &quot;high&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;1b0bd02b6e37dc1136209983e5cc2578bd56dcb9&quot;}
+{&quot;item_id&quot;: &quot;contradiction:case-2026-04-14-001:B&quot;, &quot;object_type&quot;: &quot;ContradictionSignal&quot;, &quot;entity&quot;: &quot;Neighborhood Smoothie Kiosk&quot;, &quot;topic&quot;: &quot;business_viability&quot;, &quot;claim_a&quot;: &quot;Base case supports Neighborhood Smoothie Kiosk with score 40.99.&quot;, &quot;claim_b&quot;: &quot;Downside case weakens to score 31.84.&quot;, &quot;source_a&quot;: &quot;scenario_base&quot;, &quot;source_b&quot;: &quot;scenario_downside&quot;, &quot;relative_strength&quot;: 0.091, &quot;resolution_status&quot;: &quot;unresolved&quot;, &quot;generated_at&quot;: &quot;2026-04-14T23:08:53.116324+00:00&quot;, &quot;item_fingerprint&quot;: &quot;c90e1817c61c021ccc37fc143306112adc205bb8&quot;}</pre>
       <div class="sub">NDJSON file path: (not exported)</div>
     </section>
 
@@ -143,7 +487,7 @@
           </tr>
         </thead>
         <tbody>
-          
+          <tr><td>factsignal:case-2026-04-14-001:A</td><td>Mobile Coffee Cart</td><td>business_viability</td><td>connectors/data/cost_pressures.json, connectors/data/demographics.json, connectors/data/regulatory_flags.json, connectors/data/search_signals.json, internal_cost_estimates_v3, local_demographics_2025, peer_business_public_data, search_trends_last_24_months</td><td>2026-04-14T23:08:53.116324+00:00</td><td>0.682</td><td>0.46</td><td>provisional</td></tr><tr><td>factsignal:case-2026-04-14-001:C</td><td>Home Cleaning Subscription Service</td><td>business_viability</td><td>connectors/data/cost_pressures.json, connectors/data/demographics.json, connectors/data/regulatory_flags.json, connectors/data/search_signals.json, internal_cost_estimates_v3, local_demographics_2025, peer_business_public_data, search_trends_last_24_months</td><td>2026-04-14T23:08:53.116324+00:00</td><td>0.702</td><td>0.443</td><td>provisional</td></tr><tr><td>factsignal:case-2026-04-14-001:B</td><td>Neighborhood Smoothie Kiosk</td><td>business_viability</td><td>connectors/data/cost_pressures.json, connectors/data/demographics.json, connectors/data/regulatory_flags.json, connectors/data/search_signals.json, internal_cost_estimates_v3, local_demographics_2025, peer_business_public_data, search_trends_last_24_months</td><td>2026-04-14T23:08:53.116324+00:00</td><td>0.642</td><td>0.527</td><td>provisional</td></tr>
         </tbody>
       </table>
     </section>

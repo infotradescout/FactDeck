@@ -150,12 +150,17 @@ def _contradiction_signal(
     generated_at: str,
     option: dict[str, Any],
     scenario_scores: dict[str, float],
+    contradiction_status: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     base_score = scenario_scores["base"]
     downside = scenario_scores["downside"]
     drift = round(base_score - downside, 2)
+    item_id = f"contradiction:{case.case_id}:{option['option_id']}"
+    status = "unresolved"
+    if contradiction_status and item_id in contradiction_status:
+        status = contradiction_status[item_id]
     item = {
-        "item_id": f"contradiction:{case.case_id}:{option['option_id']}",
+        "item_id": item_id,
         "object_type": "ContradictionSignal",
         "entity": option["candidate_entity"],
         "topic": case.domain,
@@ -164,7 +169,7 @@ def _contradiction_signal(
         "source_a": "scenario_base",
         "source_b": "scenario_downside",
         "relative_strength": round(abs(drift) / 100.0, 3),
-        "resolution_status": "unresolved" if drift >= 12 else "monitoring",
+        "resolution_status": status,
         "generated_at": generated_at,
     }
     item["item_fingerprint"] = _hash_item(item)
@@ -213,6 +218,7 @@ def build_lisa_feed_packet(
     publish_status: str = "draft",
     delta_from_path: str | None = None,
     since: str | None = None,
+    contradiction_status: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     generated_at = _utc_now_iso()
     items: list[dict[str, Any]] = []
@@ -232,6 +238,7 @@ def build_lisa_feed_packet(
             generated_at=generated_at,
             option=option,
             scenario_scores=report["scenario_comparison"][option["option_id"]],
+            contradiction_status=contradiction_status,
         )
         items.extend([fact, evidence, topic, contradiction])
 

@@ -1,0 +1,15 @@
+{
+  "Plano, TX": {
+    "structural_delta": 3,
+    "note": "Connector demographics: commuter density and median income support daytime demand."
+  },
+  "Arlington, TX": {
+    "structural_delta": 1,
+    "note": "Connector demographics: mixed household profile, moderate support."
+  },
+  "Frisco, TX": {
+    "structural_delta": 4,
+    "note": "Connector demographics: high household growth and service demand."
+  }
+}
+
