@@ -1,0 +1,217 @@
+{
+  "case_id": "case-2026-04-14-001",
+  "domain": "business_viability",
+  "timeframe_months": 12,
+  "resources_available": {
+    "capital": 85000,
+    "owner_time_hours_week": 35,
+    "team_size": 2
+  },
+  "constraints": {
+    "max_capital": 90000,
+    "max_time_months": 12,
+    "geography_limit": "Dallas-Fort Worth, TX",
+    "labor_limit_hours_week": 50,
+    "required_skills": [
+      "operations",
+      "local marketing",
+      "vendor management"
+    ],
+    "regulatory_notes": [
+      "standard local business permit requirements"
+    ]
+  },
+  "outcome_spec": {
+    "target_label_name": "monthly_profit_positive_by_month_6",
+    "target_rule": "monthly_revenue - monthly_fixed_costs - monthly_variable_costs > 0 by month 6",
+    "observation_window_months": 6,
+    "source_of_truth": "accounting_ledger_monthly_pnl",
+    "measurement_lag_months": 1
+  },
+  "raw_evidence_sources": [
+    "local_demographics_2025",
+    "search_trends_last_24_months",
+    "peer_business_public_data",
+    "internal_cost_estimates_v3"
+  ],
+  "current_state_snapshot": {
+    "seasonality_phase": "pre-summer",
+    "competition_trend": "moderate_growth",
+    "cash_buffer_months": 5
+  },
+  "options": [
+    {
+      "option_id": "A",
+      "candidate_entity": "Mobile Coffee Cart",
+      "geography": "Plano, TX",
+      "assumptions": [
+        "weekday commuter traffic remains stable",
+        "event-based demand contributes 20% of revenue"
+      ],
+      "resource_intensity": 42,
+      "speed_to_payoff_months": 4,
+      "fragility": 36,
+      "evidence": {
+        "structural": {
+          "score": 68,
+          "confidence": 0.72,
+          "notes": [
+            "strong daytime employment density"
+          ],
+          "missing": [
+            "updated zoning detail by district"
+          ]
+        },
+        "comparative": {
+          "score": 74,
+          "confidence": 0.66,
+          "notes": [
+            "similar-format operators show healthy repeat rates"
+          ],
+          "missing": []
+        },
+        "constraint": {
+          "score": 71,
+          "confidence": 0.7,
+          "notes": [
+            "startup capex within budget"
+          ],
+          "missing": []
+        },
+        "behavioral": {
+          "score": 77,
+          "confidence": 0.64,
+          "notes": [
+            "search demand and event interest trending upward"
+          ],
+          "missing": [
+            "direct willingness-to-pay survey"
+          ]
+        },
+        "risk": {
+          "score": 43,
+          "confidence": 0.69,
+          "notes": [
+            "weather sensitivity and permit timing risk"
+          ],
+          "missing": []
+        }
+      }
+    },
+    {
+      "option_id": "B",
+      "candidate_entity": "Neighborhood Smoothie Kiosk",
+      "geography": "Arlington, TX",
+      "assumptions": [
+        "gym partnerships drive recurring sales",
+        "ingredient costs stay within current estimate bands"
+      ],
+      "resource_intensity": 58,
+      "speed_to_payoff_months": 6,
+      "fragility": 47,
+      "evidence": {
+        "structural": {
+          "score": 63,
+          "confidence": 0.68,
+          "notes": [
+            "adequate target demographic density"
+          ],
+          "missing": []
+        },
+        "comparative": {
+          "score": 69,
+          "confidence": 0.62,
+          "notes": [
+            "mixed peer outcomes in similar neighborhoods"
+          ],
+          "missing": [
+            "peer margin data in same rent tier"
+          ]
+        },
+        "constraint": {
+          "score": 60,
+          "confidence": 0.67,
+          "notes": [
+            "equipment and rent increase fixed-cost pressure"
+          ],
+          "missing": []
+        },
+        "behavioral": {
+          "score": 66,
+          "confidence": 0.59,
+          "notes": [
+            "interest is steady but not spiking"
+          ],
+          "missing": [
+            "pre-launch preorder signal"
+          ]
+        },
+        "risk": {
+          "score": 52,
+          "confidence": 0.65,
+          "notes": [
+            "cost volatility and dependence on one channel"
+          ],
+          "missing": []
+        }
+      }
+    },
+    {
+      "option_id": "C",
+      "candidate_entity": "Home Cleaning Subscription Service",
+      "geography": "Frisco, TX",
+      "assumptions": [
+        "customer acquisition cost remains under forecast threshold",
+        "part-time labor supply remains available"
+      ],
+      "resource_intensity": 35,
+      "speed_to_payoff_months": 5,
+      "fragility": 41,
+      "evidence": {
+        "structural": {
+          "score": 72,
+          "confidence": 0.74,
+          "notes": [
+            "household growth and dual-income profile support demand"
+          ],
+          "missing": []
+        },
+        "comparative": {
+          "score": 70,
+          "confidence": 0.69,
+          "notes": [
+            "analog businesses show viable retention patterns"
+          ],
+          "missing": []
+        },
+        "constraint": {
+          "score": 67,
+          "confidence": 0.71,
+          "notes": [
+            "capex low, operations complexity moderate"
+          ],
+          "missing": [
+            "insurance quote variance by provider"
+          ]
+        },
+        "behavioral": {
+          "score": 73,
+          "confidence": 0.67,
+          "notes": [
+            "search and referral intent appear healthy"
+          ],
+          "missing": []
+        },
+        "risk": {
+          "score": 46,
+          "confidence": 0.7,
+          "notes": [
+            "service quality consistency risk"
+          ],
+          "missing": []
+        }
+      }
+    }
+  ]
+}
+
