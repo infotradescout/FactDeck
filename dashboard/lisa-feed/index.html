@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FactDeck LISA Feed</title>
+  <style>
+    :root {
+      --bg: #f8f4ed;
+      --panel: #fffef9;
+      --ink: #1f1f1a;
+      --muted: #685f56;
+      --line: #d9d0c5;
+      --accent: #9d4b2b;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 10% 0%, #fff7e6, var(--bg));
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    h1, h2 {
+      margin: 0 0 10px 0;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
+    }
+    .metric {
+      font-size: 1.6rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      background: #f5f1ea;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      max-height: 360px;
+      overflow: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f0e9dc;
+    }
+    .sub {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="panel">
+      <h1>/lisa-feed</h1>
+      <div class="sub">FactDeck knowledge translation layer for LISA.</div>
+      <div class="sub">Generated: 2026-04-14T22:55:20.541110+00:00 | Publish status: draft</div>
+    </section>
+
+    <section class="panel">
+      <h2>Section A - LISA-ready fact signals</h2>
+      <div class="cards">
+        <article class="card"><div class="sub">new facts</div><div class="metric">0</div></article>
+        <article class="card"><div class="sub">changed facts</div><div class="metric">0</div></article>
+        <article class="card"><div class="sub">disputed facts</div><div class="metric">0</div></article>
+        <article class="card"><div class="sub">high-confidence topic updates</div><div class="metric">0</div></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Section B - raw export payload</h2>
+      <div class="sub">JSON (copy/export)</div>
+      <pre>{
+  &quot;source_system&quot;: &quot;factdeck&quot;,
+  &quot;packet_type&quot;: &quot;factdeck_lisa_feed&quot;,
+  &quot;generated_at&quot;: &quot;2026-04-14T22:55:20.541110+00:00&quot;,
+  &quot;lane&quot;: &quot;fact_intelligence&quot;,
+  &quot;priority&quot;: &quot;low&quot;,
+  &quot;summary&quot;: &quot;FactDeck knowledge translation for case case-2026-04-14-001; 0 LISA-ready knowledge objects.&quot;,
+  &quot;items&quot;: [],
+  &quot;evidence_refs&quot;: [
+    &quot;local_demographics_2025&quot;,
+    &quot;search_trends_last_24_months&quot;,
+    &quot;peer_business_public_data&quot;,
+    &quot;internal_cost_estimates_v3&quot;
+  ],
+  &quot;fresh_until&quot;: &quot;2026-04-28T22:55:20.556110+00:00&quot;,
+  &quot;publish_status&quot;: &quot;draft&quot;,
+  &quot;delta_mode&quot;: {
+    &quot;since&quot;: null,
+    &quot;delta_from_path&quot;: &quot;factdeck_lisa_feed.json&quot;
+  }
+}</pre>
+      <div class="sub">NDJSON (copy/export)</div>
+      <pre></pre>
+      <div class="sub">NDJSON file path: (not exported)</div>
+    </section>
+
+    <section class="panel">
+      <h2>Section C - evidence explorer</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>fact id</th>
+            <th>entity</th>
+            <th>topic</th>
+            <th>sources</th>
+            <th>timestamp</th>
+            <th>confidence</th>
+            <th>contradiction risk</th>
+            <th>status</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
