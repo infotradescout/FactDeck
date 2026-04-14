@@ -193,6 +193,24 @@ def write_feed_page(path: str, packet: dict[str, Any], ndjson_path: str | None =
         </tbody>
       </table>
     </section>
+
+    <section class="panel">
+      <h2>Operator Workflow</h2>
+      <div class="sub">review queue</div>
+      <table>
+        <thead>
+          <tr>
+            <th>item id</th>
+            <th>type</th>
+            <th>status</th>
+            <th>recommended action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {''.join(_queue_rows(packet))}
+        </tbody>
+      </table>
+    </section>
   </main>
 </body>
 </html>
@@ -200,3 +218,31 @@ def write_feed_page(path: str, packet: dict[str, Any], ndjson_path: str | None =
     with p.open("w", encoding="utf-8") as f:
         f.write(html_doc)
 
+
+def _queue_rows(packet: dict[str, Any]) -> list[str]:
+    rows: list[str] = []
+    for item in packet.get("items", []):
+        obj = item.get("object_type", "")
+        if obj == "ContradictionSignal":
+            status = item.get("resolution_status", "unresolved")
+            rec = "investigate evidence chain" if status != "resolved" else "archive"
+            rows.append(
+                "<tr>"
+                f"<td>{html.escape(item.get('item_id', ''))}</td>"
+                "<td>ContradictionSignal</td>"
+                f"<td>{html.escape(str(status))}</td>"
+                f"<td>{html.escape(rec)}</td>"
+                "</tr>"
+            )
+        elif obj == "FactSignal" and item.get("status") in {"provisional", "disputed"}:
+            rows.append(
+                "<tr>"
+                f"<td>{html.escape(item.get('item_id', ''))}</td>"
+                "<td>FactSignal</td>"
+                f"<td>{html.escape(item.get('status', ''))}</td>"
+                "<td>collect corroborating source</td>"
+                "</tr>"
+            )
+    if not rows:
+        rows.append("<tr><td colspan=\"4\">No pending review items.</td></tr>")
+    return rows

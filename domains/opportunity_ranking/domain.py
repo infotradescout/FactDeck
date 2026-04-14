@@ -3,18 +3,8 @@ from __future__ import annotations
 from core.schemas import DecisionCase
 from scoring.policy import load_policy
 
-
-DOMAIN_NAME = "business_viability"
-UNIT_OF_EVALUATION = "one concept in one geography"
-SUCCESS_OUTCOME_HINT = "revenue viability / survival / margin viability over horizon"
-DEFAULT_HORIZON_MONTHS = (6, 12)
-ALLOWED_RECOMMENDATION_STATES = [
-    "pursue",
-    "pursue cautiously",
-    "gather more evidence",
-    "deprioritize",
-    "reject",
-]
+DOMAIN_NAME = "opportunity_ranking"
+UNIT_OF_EVALUATION = "one opportunity option in one context"
 
 
 def recommendation_state(final_score: float, confidence: float, risk_score: float, uncertainty: float) -> str:
@@ -41,3 +31,4 @@ def validate_domain_fit(case: DecisionCase) -> list[str]:
     if case.domain != DOMAIN_NAME:
         errors.append(f"Case domain must be '{DOMAIN_NAME}'.")
     return errors
+

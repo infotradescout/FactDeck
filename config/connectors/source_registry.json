@@ -1,0 +1,45 @@
+{
+  "sources": [
+    {
+      "name": "demographics",
+      "url": "file://connectors/data/demographics.json",
+      "output": "demographics.json",
+      "required_top_keys": [
+        "Plano, TX",
+        "Arlington, TX",
+        "Frisco, TX"
+      ]
+    },
+    {
+      "name": "search_signals",
+      "url": "file://connectors/data/search_signals.json",
+      "output": "search_signals.json",
+      "required_top_keys": [
+        "Mobile Coffee Cart",
+        "Neighborhood Smoothie Kiosk",
+        "Home Cleaning Subscription Service"
+      ]
+    },
+    {
+      "name": "cost_pressures",
+      "url": "file://connectors/data/cost_pressures.json",
+      "output": "cost_pressures.json",
+      "required_top_keys": [
+        "Plano, TX",
+        "Arlington, TX",
+        "Frisco, TX"
+      ]
+    },
+    {
+      "name": "regulatory_flags",
+      "url": "file://connectors/data/regulatory_flags.json",
+      "output": "regulatory_flags.json",
+      "required_top_keys": [
+        "Plano, TX",
+        "Arlington, TX",
+        "Frisco, TX"
+      ]
+    }
+  ]
+}
+

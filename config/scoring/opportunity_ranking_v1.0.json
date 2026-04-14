@@ -1,0 +1,41 @@
+{
+  "policy_id": "opportunity_ranking_v1.0",
+  "schema_version": "1.0",
+  "locked_at_utc": "2026-04-14T00:00:00+00:00",
+  "weights": {
+    "structural": 0.2,
+    "demand": 0.4,
+    "feasibility": 0.3,
+    "risk_penalty": 0.2,
+    "uncertainty_penalty": 0.2,
+    "fragility_penalty": 0.05,
+    "resource_penalty": 0.05
+  },
+  "bonus": {
+    "enabled": true,
+    "value": 8.0,
+    "demand_min": 72.0,
+    "feasibility_min": 60.0,
+    "risk_max": 50.0
+  },
+  "confidence_band": {
+    "base_half_width": 5.0,
+    "confidence_scale": 18.0,
+    "missing_scale": 1.2
+  },
+  "uncertainty": {
+    "confidence_scale": 90.0,
+    "missing_scale": 2.0
+  },
+  "decision_thresholds": {
+    "gather_more_if_uncertainty_gt": 50.0,
+    "pursue": {
+      "score_min": 78.0,
+      "confidence_min": 0.63,
+      "risk_max": 55.0
+    },
+    "pursue_cautiously_score_min": 62.0,
+    "deprioritize_score_min": 45.0
+  }
+}
+

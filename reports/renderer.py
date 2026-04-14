@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import asdict
-from typing import Any
+from typing import Any, Callable
 
-from core.schemas import CandidateOption
-from domains.business_viability.domain import recommendation_state
+from core.schemas import CandidateOption, OutcomeSpec
 from scoring.engine import ScoreBreakdown
 
 
@@ -23,8 +22,12 @@ def _next_action(state: str, option: CandidateOption, unknowns: list[str]) -> st
     return f"Reject '{option.candidate_entity}' under current constraints."
 
 
-def _to_option_record(option: CandidateOption, breakdown: ScoreBreakdown) -> dict[str, Any]:
-    state = recommendation_state(
+def _to_option_record(
+    option: CandidateOption,
+    breakdown: ScoreBreakdown,
+    recommendation_fn: Callable[[float, float, float, float], str],
+) -> dict[str, Any]:
+    state = recommendation_fn(
         final_score=breakdown.final_score,
         confidence=breakdown.confidence_level,
         risk_score=breakdown.risk_score,
@@ -65,7 +68,7 @@ def _winner(records: list[dict[str, Any]], key: str, reverse: bool = True) -> di
 def render_report(
     case_id: str,
     domain: str,
-    outcome_spec: Any,
+    outcome_spec: OutcomeSpec,
     option_records: list[dict[str, Any]],
     scenarios: dict[str, dict[str, float]],
 ) -> dict[str, Any]:
@@ -114,4 +117,3 @@ def render_report(
             "regulatory or permit constraints shift",
         ],
     }
-

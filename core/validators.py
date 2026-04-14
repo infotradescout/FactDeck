@@ -41,8 +41,9 @@ def _validate_option(option: CandidateOption) -> list[str]:
 def validate_decision_case(case: DecisionCase) -> list[str]:
     errors: list[str] = []
 
-    if case.domain != "business_viability":
-        errors.append(f"Unsupported domain: {case.domain}. Expected 'business_viability'.")
+    supported_domains = {"business_viability", "opportunity_ranking"}
+    if case.domain not in supported_domains:
+        errors.append(f"Unsupported domain: {case.domain}. Expected one of {sorted(supported_domains)}.")
     if not case.options:
         errors.append("At least one option is required.")
     if len(case.options) < 2:
@@ -64,4 +65,3 @@ def validate_decision_case(case: DecisionCase) -> list[str]:
         errors.extend(_validate_option(option))
 
     return errors
-

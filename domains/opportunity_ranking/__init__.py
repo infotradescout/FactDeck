@@ -1,0 +1,2 @@
+"""Opportunity ranking domain package."""
+

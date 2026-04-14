@@ -1,0 +1,41 @@
+{
+  "policy_id": "business_viability_v1.0",
+  "schema_version": "1.0",
+  "locked_at_utc": "2026-04-14T00:00:00+00:00",
+  "weights": {
+    "structural": 0.3,
+    "demand": 0.35,
+    "feasibility": 0.35,
+    "risk_penalty": 0.25,
+    "uncertainty_penalty": 0.2,
+    "fragility_penalty": 0.08,
+    "resource_penalty": 0.06
+  },
+  "bonus": {
+    "enabled": true,
+    "value": 6.0,
+    "demand_min": 70.0,
+    "feasibility_min": 65.0,
+    "risk_max": 45.0
+  },
+  "confidence_band": {
+    "base_half_width": 5.0,
+    "confidence_scale": 20.0,
+    "missing_scale": 1.5
+  },
+  "uncertainty": {
+    "confidence_scale": 100.0,
+    "missing_scale": 3.0
+  },
+  "decision_thresholds": {
+    "gather_more_if_uncertainty_gt": 45.0,
+    "pursue": {
+      "score_min": 75.0,
+      "confidence_min": 0.65,
+      "risk_max": 50.0
+    },
+    "pursue_cautiously_score_min": 60.0,
+    "deprioritize_score_min": 45.0
+  }
+}
+

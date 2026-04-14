@@ -5,12 +5,15 @@ import json
 from pathlib import Path
 
 from connectors.fact_sources import enrich_case_with_connectors
+from connectors.pull import pull_connector_sources
 from core.orchestration import run_decision
 from core.schemas import decision_case_from_dict
 from core.validators import validate_decision_case
 from lisa_feed.builder import build_lisa_feed_packet
 from lisa_feed.exporter import write_feed_page, write_packet_json, write_packet_ndjson
 from lisa_feed.publisher import publish_packet_versioned
+from lisa_feed.schema_guard import assert_backward_compatible, validate_packet_contract
+from memory.calibration import run_monthly_calibration
 from memory.contradictions import (
     apply_contradiction_actions,
     contradiction_status_map,
@@ -26,11 +29,11 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="FactDeck decision engine v1")
     parser.add_argument(
         "--command",
-        choices=["run", "publish"],
+        choices=["run", "publish", "pull-connectors", "calibrate"],
         default="run",
         help="run: evaluate case. publish: versioned LISA publish workflow.",
     )
-    parser.add_argument("--input", required=True, help="Path to decision case JSON file")
+    parser.add_argument("--input", required=False, help="Path to decision case JSON file")
     parser.add_argument("--memory", required=False, help="Optional JSONL decision memory log path")
     parser.add_argument(
         "--use-connectors",
@@ -95,6 +98,31 @@ def parse_args() -> argparse.Namespace:
         help="Root directory for versioned publish snapshots",
     )
     parser.add_argument(
+        "--connectors-registry",
+        default="config/connectors/source_registry.json",
+        help="Connector source registry path",
+    )
+    parser.add_argument(
+        "--connectors-output",
+        default="connectors/data",
+        help="Output directory for pulled connector datasets",
+    )
+    parser.add_argument(
+        "--decision-log",
+        default="memory/decision_log.jsonl",
+        help="Decision memory JSONL for calibration",
+    )
+    parser.add_argument(
+        "--outcomes-log",
+        default="memory/outcomes_log.jsonl",
+        help="Observed outcomes JSONL for calibration",
+    )
+    parser.add_argument(
+        "--schema-version",
+        default="1.0",
+        help="Expected schema version for feed governance checks",
+    )
+    parser.add_argument(
         "--contradiction-store",
         default="memory/contradictions.json",
         help="Path for contradiction lifecycle store",
@@ -110,6 +138,24 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+
+    if args.command == "pull-connectors":
+        report = pull_connector_sources(args.connectors_registry, args.connectors_output)
+        print(json.dumps(report, indent=2))
+        return
+
+    if args.command == "calibrate":
+        report = run_monthly_calibration(
+            decision_log_path=args.decision_log,
+            outcomes_log_path=args.outcomes_log,
+            domain="business_viability",
+        )
+        print(json.dumps(report, indent=2))
+        return
+
+    if not args.input:
+        raise SystemExit("--input is required for run/publish commands.")
+
     input_path = Path(args.input)
 
     with input_path.open("r", encoding="utf-8") as f:
@@ -151,6 +197,9 @@ def main() -> None:
             since=args.since,
             contradiction_status=contradiction_status_map(contradiction_store),
         )
+        packet["schema_version"] = args.schema_version
+        validate_packet_contract(packet)
+        assert_backward_compatible(packet, expected_major=args.schema_version.split(".", 1)[0])
 
         contradiction_ids = [i["item_id"] for i in packet["items"] if i.get("object_type") == "ContradictionSignal"]
         contradiction_store = merge_new_contradictions(contradiction_store, contradiction_ids)

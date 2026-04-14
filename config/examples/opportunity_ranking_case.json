@@ -1,0 +1,135 @@
+{
+  "case_id": "case-2026-04-14-opp-001",
+  "domain": "opportunity_ranking",
+  "timeframe_months": 6,
+  "resources_available": {
+    "capital": 60000,
+    "owner_time_hours_week": 30,
+    "team_size": 2
+  },
+  "constraints": {
+    "max_capital": 70000,
+    "max_time_months": 8,
+    "geography_limit": "Dallas-Fort Worth, TX",
+    "labor_limit_hours_week": 45,
+    "required_skills": [
+      "sales",
+      "operations"
+    ],
+    "regulatory_notes": [
+      "standard local requirements"
+    ]
+  },
+  "outcome_spec": {
+    "target_label_name": "ranked_opportunity_score_with_manual_adjudication_rules",
+    "target_rule": "higher composite score with acceptable risk and uncertainty ranks above peers",
+    "observation_window_months": 6,
+    "source_of_truth": "factdeck_manual_outcome_adjudication",
+    "measurement_lag_months": 1
+  },
+  "raw_evidence_sources": [
+    "connector:demographics",
+    "connector:search_signals",
+    "connector:cost_pressures",
+    "connector:regulatory_flags"
+  ],
+  "current_state_snapshot": {
+    "market_phase": "stable",
+    "team_readiness": "moderate"
+  },
+  "options": [
+    {
+      "option_id": "R1",
+      "candidate_entity": "Short-Form Video Lead Gen Service",
+      "geography": "Plano, TX",
+      "assumptions": [
+        "SMB demand remains strong",
+        "creator labor remains available"
+      ],
+      "resource_intensity": 38,
+      "speed_to_payoff_months": 3,
+      "fragility": 40,
+      "evidence": {
+        "structural": {
+          "score": 70,
+          "confidence": 0.72,
+          "notes": [],
+          "missing": [
+            "renewal-rate benchmark by segment"
+          ]
+        },
+        "comparative": {
+          "score": 76,
+          "confidence": 0.69,
+          "notes": [],
+          "missing": []
+        },
+        "constraint": {
+          "score": 72,
+          "confidence": 0.7,
+          "notes": [],
+          "missing": []
+        },
+        "behavioral": {
+          "score": 78,
+          "confidence": 0.67,
+          "notes": [],
+          "missing": []
+        },
+        "risk": {
+          "score": 44,
+          "confidence": 0.68,
+          "notes": [],
+          "missing": []
+        }
+      }
+    },
+    {
+      "option_id": "R2",
+      "candidate_entity": "Niche Newsletter Sponsorship Brokerage",
+      "geography": "Frisco, TX",
+      "assumptions": [
+        "advertiser demand sustains",
+        "inventory quality remains high"
+      ],
+      "resource_intensity": 31,
+      "speed_to_payoff_months": 4,
+      "fragility": 35,
+      "evidence": {
+        "structural": {
+          "score": 68,
+          "confidence": 0.71,
+          "notes": [],
+          "missing": []
+        },
+        "comparative": {
+          "score": 72,
+          "confidence": 0.68,
+          "notes": [],
+          "missing": [
+            "same-vertical churn baseline"
+          ]
+        },
+        "constraint": {
+          "score": 75,
+          "confidence": 0.73,
+          "notes": [],
+          "missing": []
+        },
+        "behavioral": {
+          "score": 71,
+          "confidence": 0.66,
+          "notes": [],
+          "missing": []
+        },
+        "risk": {
+          "score": 41,
+          "confidence": 0.69,
+          "notes": [],
+          "missing": []
+        }
+      }
+    }
+  ]
+}
+

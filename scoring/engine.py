@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Any
 
 from core.schemas import CandidateOption
 
@@ -24,7 +25,7 @@ class ScoreBreakdown:
     key_unknowns: list[str]
 
 
-def score_option(option: CandidateOption) -> ScoreBreakdown:
+def score_option(option: CandidateOption, policy: dict[str, Any]) -> ScoreBreakdown:
     structural = option.evidence.structural.score
     comparative = option.evidence.comparative.score
     behavioral = option.evidence.behavioral.score
@@ -50,22 +51,34 @@ def score_option(option: CandidateOption) -> ScoreBreakdown:
         + option.evidence.behavioral.missing
         + option.evidence.risk.missing
     )
-    uncertainty = _clamp((1.0 - confidence_level) * 100.0 + len(missing) * 3.0)
+    uncertainty = _clamp(
+        (1.0 - confidence_level) * float(policy["uncertainty"]["confidence_scale"])
+        + len(missing) * float(policy["uncertainty"]["missing_scale"])
+    )
 
     bonus = 0.0
-    if demand >= 70 and feasibility >= 65 and risk <= 45:
-        bonus = 6.0
+    if policy["bonus"]["enabled"]:
+        if (
+            demand >= float(policy["bonus"]["demand_min"])
+            and feasibility >= float(policy["bonus"]["feasibility_min"])
+            and risk <= float(policy["bonus"]["risk_max"])
+        ):
+            bonus = float(policy["bonus"]["value"])
 
-    c_struct = 0.30 * structural
-    c_demand = 0.35 * demand
-    c_feas = 0.35 * feasibility
-    c_risk = -0.25 * risk
-    c_unc = -0.20 * uncertainty
+    c_struct = float(policy["weights"]["structural"]) * structural
+    c_demand = float(policy["weights"]["demand"]) * demand
+    c_feas = float(policy["weights"]["feasibility"]) * feasibility
+    c_risk = -float(policy["weights"]["risk_penalty"]) * risk
+    c_unc = -float(policy["weights"]["uncertainty_penalty"]) * uncertainty
 
     raw = c_struct + c_demand + c_feas + c_risk + c_unc + bonus
     final = _clamp(raw)
 
-    band_half_width = max(5.0, (1.0 - confidence_level) * 20.0 + len(missing) * 1.5)
+    band_half_width = max(
+        float(policy["confidence_band"]["base_half_width"]),
+        (1.0 - confidence_level) * float(policy["confidence_band"]["confidence_scale"])
+        + len(missing) * float(policy["confidence_band"]["missing_scale"]),
+    )
     band = (_clamp(final - band_half_width), _clamp(final + band_half_width))
 
     positive_drivers = sorted(
@@ -82,8 +95,8 @@ def score_option(option: CandidateOption) -> ScoreBreakdown:
         [
             ("risk penalty", c_risk),
             ("uncertainty penalty", c_unc),
-            ("fragility penalty", -0.08 * option.fragility),
-            ("resource intensity penalty", -0.06 * option.resource_intensity),
+            ("fragility penalty", -float(policy["weights"]["fragility_penalty"]) * option.fragility),
+            ("resource intensity penalty", -float(policy["weights"]["resource_penalty"]) * option.resource_intensity),
         ],
         key=lambda x: x[1],
     )[:3]
@@ -101,4 +114,3 @@ def score_option(option: CandidateOption) -> ScoreBreakdown:
         negative_drivers=[(name, round(value, 2)) for name, value in negative_drivers],
         key_unknowns=list(dict.fromkeys(missing))[:5],
     )
-
