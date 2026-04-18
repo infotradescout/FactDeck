@@ -1,0 +1,202 @@
+{
+  "generated_at": "2026-04-18T15:00:50.564Z",
+  "source": "lisa-bridge",
+  "format": "lane-indexed-v1",
+  "count": 3,
+  "latest_signal_id": 4,
+  "lanes": {
+    "supply_signal": [
+      {
+        "id": 2,
+        "receivedAt": "2026-04-18T15:00:01.829Z",
+        "lane": "supply_signal",
+        "confidence": 0.7,
+        "observed_fact": "state_update",
+        "source": "v1_stream",
+        "entity": "contractor_availability",
+        "location": "Tangipahoa",
+        "change": "availability_updated",
+        "source_class": "external_stream",
+        "ambiguous": true,
+        "needs_review": true,
+        "review_reason": "low_confidence",
+        "signal": "supply_signal",
+        "raw": {
+          "type": "state_update",
+          "payload": {
+            "entity": "contractor_availability",
+            "location": "Tangipahoa",
+            "change": "availability_updated"
+          }
+        },
+        "payload": {
+          "entity": "contractor_availability",
+          "location": "Tangipahoa",
+          "change": "availability_updated"
+        }
+      },
+      {
+        "id": 4,
+        "receivedAt": "2026-04-18T15:00:01.830Z",
+        "lane": "supply_signal",
+        "confidence": 0.9,
+        "observed_fact": "state_update",
+        "source": "v1_stream",
+        "entity": "market_capacity",
+        "location": "Tangipahoa",
+        "change": "capacity_tightening",
+        "source_class": "external_stream",
+        "ambiguous": false,
+        "needs_review": false,
+        "review_reason": null,
+        "signal": "supply_signal",
+        "raw": {
+          "type": "state_update",
+          "payload": {
+            "signal": "capacity_tightening",
+            "entity": "market_capacity",
+            "location": "Tangipahoa",
+            "change": "capacity_tightening"
+          }
+        },
+        "payload": {
+          "signal": "capacity_tightening",
+          "entity": "market_capacity",
+          "location": "Tangipahoa",
+          "change": "capacity_tightening"
+        }
+      }
+    ],
+    "state_change": [
+      {
+        "id": 3,
+        "receivedAt": "2026-04-18T15:00:01.830Z",
+        "lane": "state_change",
+        "confidence": 0.8,
+        "observed_fact": "state_expired",
+        "source": "v1_stream",
+        "entity": "contractor_availability",
+        "location": "Tangipahoa",
+        "change": "state_expired",
+        "source_class": "external_stream",
+        "ambiguous": false,
+        "needs_review": false,
+        "review_reason": null,
+        "signal": "state_change",
+        "raw": {
+          "type": "state_expired",
+          "payload": {
+            "entity": "contractor_availability",
+            "location": "Tangipahoa",
+            "change": "state_expired"
+          }
+        },
+        "payload": {
+          "entity": "contractor_availability",
+          "location": "Tangipahoa",
+          "change": "state_expired"
+        }
+      }
+    ]
+  },
+  "lane_counts": {
+    "supply_signal": 2,
+    "state_change": 1
+  },
+  "lane_order": [
+    "supply_signal",
+    "state_change"
+  ],
+  "items": [
+    {
+      "id": 2,
+      "receivedAt": "2026-04-18T15:00:01.829Z",
+      "lane": "supply_signal",
+      "confidence": 0.7,
+      "observed_fact": "state_update",
+      "source": "v1_stream",
+      "entity": "contractor_availability",
+      "location": "Tangipahoa",
+      "change": "availability_updated",
+      "source_class": "external_stream",
+      "ambiguous": true,
+      "needs_review": true,
+      "review_reason": "low_confidence",
+      "signal": "supply_signal",
+      "raw": {
+        "type": "state_update",
+        "payload": {
+          "entity": "contractor_availability",
+          "location": "Tangipahoa",
+          "change": "availability_updated"
+        }
+      },
+      "payload": {
+        "entity": "contractor_availability",
+        "location": "Tangipahoa",
+        "change": "availability_updated"
+      }
+    },
+    {
+      "id": 3,
+      "receivedAt": "2026-04-18T15:00:01.830Z",
+      "lane": "state_change",
+      "confidence": 0.8,
+      "observed_fact": "state_expired",
+      "source": "v1_stream",
+      "entity": "contractor_availability",
+      "location": "Tangipahoa",
+      "change": "state_expired",
+      "source_class": "external_stream",
+      "ambiguous": false,
+      "needs_review": false,
+      "review_reason": null,
+      "signal": "state_change",
+      "raw": {
+        "type": "state_expired",
+        "payload": {
+          "entity": "contractor_availability",
+          "location": "Tangipahoa",
+          "change": "state_expired"
+        }
+      },
+      "payload": {
+        "entity": "contractor_availability",
+        "location": "Tangipahoa",
+        "change": "state_expired"
+      }
+    },
+    {
+      "id": 4,
+      "receivedAt": "2026-04-18T15:00:01.830Z",
+      "lane": "supply_signal",
+      "confidence": 0.9,
+      "observed_fact": "state_update",
+      "source": "v1_stream",
+      "entity": "market_capacity",
+      "location": "Tangipahoa",
+      "change": "capacity_tightening",
+      "source_class": "external_stream",
+      "ambiguous": false,
+      "needs_review": false,
+      "review_reason": null,
+      "signal": "supply_signal",
+      "raw": {
+        "type": "state_update",
+        "payload": {
+          "signal": "capacity_tightening",
+          "entity": "market_capacity",
+          "location": "Tangipahoa",
+          "change": "capacity_tightening"
+        }
+      },
+      "payload": {
+        "signal": "capacity_tightening",
+        "entity": "market_capacity",
+        "location": "Tangipahoa",
+        "change": "capacity_tightening"
+      }
+    }
+  ],
+  "json_path": "C:\\Users\\trob4\\GitHub\\FactDeck\\feeds\\signals_2026-04-18T15-00-50-564Z.json"
+}
