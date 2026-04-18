@@ -19,27 +19,52 @@ def _load_json(path: Path) -> dict:
 
 def _load_since(since: str) -> dict:
     latest = _load_json(ROOT / "latest.json")
-    json_path = latest.get("json_path")
-    if not json_path:
-        return {"items": []}
-    packet = _load_json(Path(json_path))
+    packet = latest
+    if not packet:
+        return {"items": [], "lanes": {}, "lane_counts": {}, "count": 0, "since": since}
+
+    if "items" not in packet and latest.get("json_path"):
+        packet = _load_json(Path(latest["json_path"]))
+
     items = []
     for item in packet.get("items", []):
-        generated = item.get("generated_at")
+        generated = item.get("receivedAt") or item.get("generated_at")
         if not generated:
             continue
         if datetime.fromisoformat(generated.replace("Z", "+00:00")) >= datetime.fromisoformat(
             since.replace("Z", "+00:00")
         ):
             items.append(item)
-    return {"items": items, "count": len(items), "since": since}
+
+    lanes = {}
+    for item in items:
+        lane = str(item.get("lane") or item.get("signal") or "unclassified")
+        lanes.setdefault(lane, []).append(item)
+
+    return {
+        "items": items,
+        "lanes": lanes,
+        "lane_counts": {lane: len(entries) for lane, entries in lanes.items()},
+        "count": len(items),
+        "since": since,
+    }
 
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self) -> None:  # noqa: N802
         parsed = urlparse(self.path)
         if parsed.path == "/latest":
-            self._send_json(_load_json(ROOT / "latest.json"))
+            latest = _load_json(ROOT / "latest.json")
+            if latest.get("items"):
+                self._send_json(latest)
+                return
+
+            json_path = latest.get("json_path")
+            if json_path:
+                self._send_json(_load_json(Path(json_path)))
+                return
+
+            self._send_json({})
             return
         if parsed.path == "/since":
             params = parse_qs(parsed.query)
